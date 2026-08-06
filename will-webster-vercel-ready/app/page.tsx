@@ -6,6 +6,8 @@ const projects = [
     summary:
       "A full-stack application that compares resumes with job descriptions and turns the result into a clear, actionable match score.",
     result: "25% stronger match scores after targeted resume revisions",
+    liveUrl: "https://rezume-analyzer.onrender.com/",
+    codeUrl: "https://github.com/willyweb31/Rezume-Analyzer",
     className: "visual-resume",
     visual: (
       <div className="resume-ui" aria-hidden="true">
@@ -44,6 +46,60 @@ const projects = [
         <div className="property-stat"><span>Occupancy</span><strong>94%</strong><i /></div>
         <div className="property-grid"><span /><span /><span /><span /><span /><span /></div>
         <div className="property-label">Portfolio overview</div>
+      </div>
+    ),
+  },
+  {
+    number: "04",
+    title: "Startup Hub",
+    type: "Next.js + Sanity / 2025",
+    summary:
+      "A full-stack platform for discovering and sharing startup ideas, with advanced search, authenticated creator profiles, and user dashboards.",
+    result: "One searchable home for founders, ideas, and creator activity",
+    liveUrl: "https://startup-hub-sand.vercel.app/",
+    codeUrl: "https://github.com/willyweb31/Startup-Hub",
+    className: "visual-startup",
+    visual: (
+      <div className="startup-ui" aria-hidden="true">
+        <div className="startup-nav"><strong>STARTUP</strong><span>Discover / Pitch / Connect</span></div>
+        <div className="startup-search">Search ideas, industries, and founders <b>&#8599;</b></div>
+        <div className="startup-cards"><span><i>01</i>Fintech</span><span><i>02</i>Climate</span><span><i>03</i>Health</span></div>
+      </div>
+    ),
+  },
+  {
+    number: "05",
+    title: "Ski City",
+    type: "Flask + MariaDB / 2025",
+    summary:
+      "A full-stack ski lodge rental application coordinating guest check-ins, equipment reservations, and operational records through a relational database.",
+    result: "One workflow for lodge rentals, guests, and equipment",
+    liveUrl: "https://cgi.luddy.indiana.edu/~wwebste/i211-project/index.cgi/",
+    codeUrl: "https://github.iu.edu/i211sp2025/wwebste-i211-project",
+    className: "visual-ski",
+    visual: (
+      <div className="ski-ui" aria-hidden="true">
+        <div className="ski-sun" />
+        <div className="ski-mountain mountain-back" />
+        <div className="ski-mountain mountain-front" />
+        <div className="ski-ticket"><span>SKI CITY</span><strong>LODGE 05</strong><small>Check in / Gear up / Ride</small></div>
+      </div>
+    ),
+  },
+  {
+    number: "06",
+    title: "Scam School",
+    type: "Figma + UX Design / 2024",
+    summary:
+      "An accessible, module-based scam awareness experience designed to help college students recognize manipulation and make safer decisions online.",
+    result: "Complex safety guidance turned into approachable learning modules",
+    liveUrl: "https://zion.luddy.indiana.edu/info-i300-sp24/tt3-1#project",
+    className: "visual-scam",
+    visual: (
+      <div className="scam-ui" aria-hidden="true">
+        <div className="scam-title"><span>SCAM</span><strong>SCHOOL</strong></div>
+        <div className="scam-alert">!</div>
+        <div className="scam-modules"><span>01 / Spot it</span><span>02 / Check it</span><span>03 / Report it</span></div>
       </div>
     ),
   },
@@ -89,6 +145,12 @@ export default function Home() {
                 <h2>{project.title}</h2>
                 <p>{project.summary}</p>
                 <div className="project-result"><span>Result</span><strong>{project.result}</strong></div>
+                {(project.liveUrl || project.codeUrl) && (
+                  <div className="project-links">
+                    {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer">Live project <span aria-hidden="true">&#8599;</span></a>}
+                    {project.codeUrl && <a href={project.codeUrl} target="_blank" rel="noreferrer">View code <span aria-hidden="true">&#8599;</span></a>}
+                  </div>
+                )}
               </div>
             </article>
           ))}
